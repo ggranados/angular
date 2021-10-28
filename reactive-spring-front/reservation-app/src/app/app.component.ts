@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import { ReservationService } from './reservation.service';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,7 @@ import {HttpClient} from '@angular/common/http';
 export class AppComponent {
   title = 'reservation-app';
 
-  constructor(private http:HttpClient){}
-
-  private baseUrl:string = 'http//localhost:8080';
-  private reservationUrl:string = this.baseUrl + '/room/v1/reservation/';
+  constructor(private reservationService:ReservationService){  }
 
   rooms: Room[] = [];
 
