@@ -14,10 +14,10 @@ export class AppComponent {
 
   rooms: Room[] = [];
   roomSearchForm: FormGroup = new FormGroup({});
-  currentCheckInVal: string | undefined;
-  currentCheckOut: string | undefined;
-  currentPrice: number| undefined;
-  currentRoomNumber: number | undefined;
+  currentCheckInVal?: string;
+  currentCheckOut?: string;
+  currentPrice?: number;
+  currentRoomNumber?: number;
 
   
 
