@@ -13,8 +13,35 @@ export class AppComponent {
   constructor(private reservationService:ReservationService){  }
 
   rooms: Room[] = [];
+  roomSearchForm: FormGroup = new FormGroup({});
+  currentCheckInVal: string | undefined;
+  currentCheckOut: string | undefined;
+  currentPrice: number| undefined;
+  currentRoomNumber: number | undefined;
+
+  
 
   ngOnInit() {
+
+    this.roomSearchForm = new FormGroup ({
+      checkIn: new FormControl(''),
+      checkOut: new FormControl(''),
+      roomNumber: new FormControl('')
+    });
+  
+  
+    this.roomSearchForm.valueChanges.subscribe( form => {
+        this.currentCheckInVal = form.checkIn;
+        this.currentCheckOut = form.checkOut;
+        
+        if(form.roomNumber){
+          let roomValues: string[] = form.roomNumber.split('|');
+          this.currentRoomNumber = Number(roomValues[0]);
+          this.currentPrice = Number(roomValues[1]);
+        }
+
+    });
+   
     this.rooms = [
     new Room("127","127", "150"),
     new Room("137","137", "180"),
