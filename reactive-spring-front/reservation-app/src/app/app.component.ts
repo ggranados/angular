@@ -71,6 +71,7 @@ export class AppComponent {
         console.log(postResult)
     );
 
+    this.getCurrentReservations();
   }
 }
 
