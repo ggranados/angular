@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
+        HttpClientModule
       ],
       declarations: [
         AppComponent
@@ -30,6 +34,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('reservation-app app is running!');
+    console.log("****************"+compiled.querySelector('.content div')?.textContent);
+    expect(compiled.querySelector('.content div')?.textContent).toContain('Current Reservations');
   });
 });
